@@ -1,75 +1,87 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        farajist.me
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+  <div>
+    <section class="lead">
+      <div class="container">
+        <div class="copy">
+          <h1>
+            Hey, I'm Hamza <br>
+            I'm a CS Student, interested in applied ML and OSS.
+          </h1>
+          <p class="subtitle" />
+          <p>
+            This website is my portfolio - I like to keep it updated with things I learn
+            along the journey as well as things I'm interested in.
+          </p>
+          <!-- FIXME: whitespace issue -->
+          <p>
+            You can read my
+            <nuxt-link to="/blog">posts</nuxt-link>, view my
+            <nuxt-link to="/blog">guides and tutorials</nuxt-link>,
+            or learn more about <nuxt-link to="/me">me</nuxt-link>.
+          </p>
+          <p class="flex">
+            <a
+              href="https://github.com/farajist"
+              target="_blank"
+              rel="noreferrer"
+              class="button"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/farajist/"
+              target="_blank"
+              rel="noreferrer"
+              class="button"
+            >
+              LinkedIn
+            </a>
+          </p>
+        </div>
+
+        <div class="image">
+          <img src="{tania}" alt="Hamza">
+        </div>
       </div>
+    </section>
+    <div class="container">
+      <section>
+        <h2>Latest</h2>
+        <posts :data="articles" with-tags />
+      </section>
+      <section>
+        <h2>Projects</h2>
+      </section>
+      <section>
+        <h2>Newsletter</h2>
+      </section>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import Posts from '~/components/Posts.vue'
 
-export default Vue.extend({})
+export default Vue.extend({
+  components: {
+    Posts
+  },
+
+  async asyncData ({ $content, params }) {
+    // FIXME: latest = last 5 ?
+    const articles = await $content('articles', params.slug)
+      .only(['title', 'tags', 'slug'])
+      .sortBy('createdAt', 'asc')
+      .fetch()
+
+    return {
+      articles
+    }
+  }
+})
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>
