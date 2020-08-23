@@ -65,13 +65,5 @@ export default {
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
   */
-  build: {
-    loaders: {
-      vue: {
-        compilerOptions: {
-          whitespace: 'preserve'
-        }
-      }
-    }
-  }
+  build: {}
 }

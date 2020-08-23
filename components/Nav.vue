@@ -25,10 +25,9 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
-  name: 'Nav'
-})
+import { Component, Vue } from 'vue-property-decorator'
+@Component
+export default class Nav extends Vue {}
 </script>
 
 <style scoped>

@@ -4,7 +4,7 @@
       <section>
         <img src="/farajist.png" alt="Tania" class="avatar">
         <p>
-          I'm <nuxt-link to="/me">
+          I'm <nuxt-link to="/about">
             Hamza
           </nuxt-link> I'm a CS Student, interested in applied ML and OSS.
           This website is my portfolio - I like to keep it updated with things I learn
@@ -21,10 +21,9 @@
       </section>
       <section>
         <h3>Published</h3>
-        <time>{date}</time>
+        <time>{{ date | formatDate }}</time>
       </section>
       <section>
-        <!-- TODO: no patreon/ko-fi for now-->
         <h3>Stay in touch</h3>
         <nav>
           <a
@@ -51,24 +50,29 @@
       <section>
         <h3>Search</h3>
         <p>Search anything on the site.</p>
-        <!--  TODO: search form goes here-->
-        <!--  <SearchForm {...props} />-->
+        <search-form />
       </section>
     </div>
   </aside>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
-  name: 'Sidebar',
-  props: {
-    date: Date,
-    tags: Array
+import { Component, Prop, Vue } from 'vue-property-decorator'
+import SearchForm from '~/components/SearchForm.vue'
+
+@Component({
+  components: {
+    SearchForm
+  },
+  filters: {
+    formatDate (date: string) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' }
+      return new Date(date).toLocaleDateString('en', options)
+    }
   }
 })
+export default class Sidebar extends Vue {
+  @Prop({ type: String, required: true }) readonly date!: string;
+  @Prop({ type: Array }) readonly tags!: string[];
+}
 </script>
-
-<style scoped>
-
-</style>

@@ -50,8 +50,7 @@
 </template>
 
 <script>
-import Vue from 'vue'
-export default Vue.extend({
-  name: 'Foot'
-})
+import { Component, Vue } from 'vue-property-decorator'
+@Component
+export default class Foot extends Vue {}
 </script>

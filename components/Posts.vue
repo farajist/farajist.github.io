@@ -18,18 +18,20 @@
 </template>
 
 <script lang="ts">
-export default {
-  name: 'Posts',
-  props: { withTags: Boolean, data: Array },
-  computed: {
-    tagsClass (): string {
-      return 'with-tags'
-    }
-  },
-  methods: {
-    linkTagClass (tag: string): string {
-      return `tag-${tag}`
-    }
+import { Component, Prop, Vue } from 'vue-property-decorator'
+import { Article } from '~/components/Post.vue'
+
+@Component
+export default class Posts extends Vue {
+  @Prop({ type: Array, required: true }) readonly data!: Article[];
+  @Prop({ type: Boolean, default: true }) readonly withTags!: Boolean;
+
+  get tagsClass (): string {
+    return 'with-tags'
+  }
+
+  linkTagClass (tag: string): string {
+    return `tag-${tag}`
   }
 }
 </script>

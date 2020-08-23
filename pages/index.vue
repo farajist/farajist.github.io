@@ -12,7 +12,6 @@
             This website is my portfolio - I like to keep it updated with things I learn
             along the journey as well as things I'm interested in.
           </p>
-          <!-- FIXME: whitespace issue -->
           <p>
             You can read my
             <nuxt-link to="/blog">posts</nuxt-link>, view my
@@ -60,16 +59,15 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import Posts from '~/components/Posts.vue'
 
-export default Vue.extend({
+import { Component, Vue } from 'vue-property-decorator'
+import Posts from '~/components/Posts.vue'
+@Component({
   components: {
     Posts
   },
-
   async asyncData ({ $content, params }) {
-    // FIXME: latest = last 5 ?
+    // NOTE: when having many articles later consider adding a limiter
     const articles = await $content('articles', params.slug)
       .only(['title', 'tags', 'slug'])
       .sortBy('createdAt', 'asc')
@@ -80,6 +78,7 @@ export default Vue.extend({
     }
   }
 })
+export default class Index extends Vue {}
 </script>
 
 <style>

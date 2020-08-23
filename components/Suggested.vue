@@ -12,21 +12,19 @@
   </div>
 </template>
 
-<script>
-import Vue from 'vue'
-export default Vue.extend({
-  name: 'Suggested',
-  props: {
-    prev: {
-      type: Object,
-      default: () => null
-    },
-    next: {
-      type: Object,
-      default: () => null
-    }
-  }
-})
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator'
+
+interface PrevNextElement {
+  title: string;
+  slug: string;
+}
+
+@Component
+export default class Suggested extends Vue {
+  @Prop({ type: Object, default: null }) readonly prev!: PrevNextElement;
+  @Prop({ type: Object, default: null }) readonly next!: PrevNextElement;
+}
 </script>
 
 <style scoped>

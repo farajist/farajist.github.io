@@ -2,10 +2,10 @@
   <post :article="article" :prev="prev" :next="next" />
 </template>
 <script lang="ts">
-import Vue from 'vue'
-import Post from '~/components/Post.vue'
 
-export default Vue.extend({
+import { Component, Vue } from 'vue-property-decorator'
+import Post from '~/components/Post.vue'
+@Component({
   components: { Post },
   async asyncData ({ $content, params }) {
     const article = await $content('articles', params.slug).fetch()
@@ -14,14 +14,10 @@ export default Vue.extend({
       .sortBy('createdAt', 'asc')
       .surround(params.slug)
       .fetch()
-
     return { article, prev, next }
-  },
-  methods: {
-    formatDate (date: string) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' }
-      return new Date(date).toLocaleDateString('en', options)
-    }
   }
 })
+export default class BlogPage extends Vue {
+
+}
 </script>

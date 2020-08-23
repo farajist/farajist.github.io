@@ -5,41 +5,47 @@
         <header class="article-header">
           <div class="container">
             <div class="thumb">
-              <img v-if="article.thumbnail">
+              <img v-if="article.img" :src="article.img" :alt="article.alt">
               <h1>{{ article.title }}</h1>
             </div>
           </div>
         </header>
-        <!-- TODO: meat goes here -->
+        <!-- TODO: core content goes here -->
         <!-- <div />-->
-        <!-- <nuxt-content :document="article" />-->
+        <nuxt-content :document="article" />
       </article>
-      <!-- TODO: sidebar goes here -->
       <sidebar :date="article.createdAt" :tags="article.tags" />
     </section>
-    <!-- TODO: suggestion goes here -->
-    <Suggested :prev="prev" :next="next" />
+    <suggested :prev="prev" :next="next" />
   </div>
 </template>
 
 <script lang="ts">
-// post for single blog post
-import Vue from 'vue'
+import { Component, Prop, Vue } from 'vue-property-decorator'
 import Sidebar from '~/components/Sidebar.vue'
 import Suggested from '~/components/Suggested.vue'
-export default Vue.extend({
-  name: 'Post',
+
+export interface Article {
+  title: string;
+  description: string;
+  tags: string[];
+  img: string;
+  alt: string;
+  body: any;
+  createdAt: string;
+  updatedAt: string;
+}
+@Component({
   components: {
     Sidebar,
     Suggested
-  },
-  props: {
-    article: Object,
-    prev: Object,
-    next: Object
   }
-
 })
+export default class Post extends Vue {
+  @Prop({ type: Object, required: true }) readonly article!: Article;
+  @Prop({ type: Object }) readonly prev!: object;
+  @Prop({ type: Object }) readonly next!: object;
+}
 </script>
 
 <style scoped>

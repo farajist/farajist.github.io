@@ -44,11 +44,7 @@
   </div>
 </template>
 <script>
-export default {
-  name: 'Me'
-}
+import { Component, Vue } from 'vue-property-decorator'
+@Component
+export default class About extends Vue {}
 </script>
-
-<style scoped>
-
-</style>

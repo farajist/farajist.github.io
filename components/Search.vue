@@ -13,39 +13,49 @@
         <posts with-tags :data="resultArticles" />
       </template>
       <template v-else>
-        <p>Sorry, nothing matched that search.</p>
+        <p>Sorry, nothing matches what you are looking for.</p>
       </template>
     </section>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
+import { Article } from '~/components/Post.vue'
 import Posts from '~/components/Posts.vue'
-export default Vue.extend({
-  name: 'Search',
-  components: { Posts },
-  props: { articles: Array },
-  data () {
-    return {
-      searchQuery: '',
-      resultArticles: this.articles
-    }
-  },
-  watch: {
-    async searchQuery (searchQuery) {
-      if (!searchQuery) {
-        this.resultArticles = this.articles
-        return
-      }
-      this.resultArticles = await this.$content('articles')
-        .search(searchQuery)
-        .only(['title', 'tags', 'slug'])
-        .sortBy('createdAt', 'asc')
-        .fetch()
-    }
-  }
+
+@Component({
+  components: { Posts }
 })
+export default class Search extends Vue {
+  @Prop({ type: Array, required: true }) readonly articles!: Article[];
+
+  searchQuery = '';
+  resultArticles = this.articles;
+
+  @Watch('$route', { immediate: true, deep: true })
+  // NOTE: couldn't find Route type (not exported maybe)
+  private async urlChanged (to: any) {
+    await this.updateArticles(to.query.search)
+  }
+
+  @Watch('searchQuery')
+  async onQueryChanged (val: string) {
+    await this.updateArticles(val)
+  }
+
+  async updateArticles (query?: string) {
+    if (!query) {
+      this.resultArticles = this.articles
+      return
+    }
+    this.resultArticles = await this.$content('articles')
+      .search(query)
+      .only(['title', 'tags', 'slug'])
+      .sortBy('createdAt', 'asc')
+      .fetch()
+  }
+}
 </script>
 
 <style scoped>
