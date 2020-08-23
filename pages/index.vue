@@ -16,7 +16,7 @@
             You can read my
             <nuxt-link to="/blog">posts</nuxt-link>, view my
             <nuxt-link to="/blog">guides and tutorials</nuxt-link>,
-            or learn more about <nuxt-link to="/me">me</nuxt-link>.
+            or learn more about <nuxt-link to="/about">me</nuxt-link>.
           </p>
           <p class="flex">
             <a
