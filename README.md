@@ -1,4 +1,6 @@
-# farajist.me
+# farajist.github.io
+
+Just my personal blog !
 
 ## Build Setup
 
