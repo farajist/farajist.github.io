@@ -1250,6 +1250,8 @@ mark {
   background: #ffec99;
 }
 
+/* TAGS
+-------------- */
 a.tag-javascript,
 a.tag-sql {
   background: #fff3bf;
@@ -1412,4 +1414,27 @@ a.tag-tools:hover {
 
 .text-center {
   text-align: center;
+}
+/* CONTENT
+-------------- */
+.nuxt-content pre {
+  border-radius: .25rem;
+}
+
+.nuxt-content-highlight {
+  position: relative;
+}
+.nuxt-content .nuxt-content-highlight .filename {
+  position: absolute;
+  right: 0;
+  top: 0;
+  line-height: 1;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 0.875rem;
+  z-index: 10;
+  color: #f7fafc;
+  margin-right: 0.75rem;
+  margin-top: 0.75rem;
+
 }

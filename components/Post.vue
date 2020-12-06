@@ -10,8 +10,6 @@
             </div>
           </div>
         </header>
-        <!-- TODO: core content goes here -->
-        <!-- <div />-->
         <nuxt-content :document="article" />
       </article>
       <sidebar :date="article.createdAt" :tags="article.tags" />

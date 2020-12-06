@@ -25,7 +25,7 @@ import Search from '~/components/Search.vue'
     // NOTE: when having many articles later consider adding a limiter
     const articles = await $content('articles', params.slug)
       .only(['title', 'tags', 'slug'])
-      .sortBy('createdAt', 'asc')
+      .sortBy('createdAt', 'desc')
       .fetch()
 
     return {

@@ -7,7 +7,7 @@
       id="search"
       v-model="searchQuery"
       type="search"
-      placeholder="Try me..."
+      placeholder="Type a keyword ..."
     >
     <button>🔍</button>
   </form>

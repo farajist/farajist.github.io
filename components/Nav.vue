@@ -15,9 +15,6 @@
           <nuxt-link to="/blog">
             Blog
           </nuxt-link>
-          <nuxt-link to="/guides">
-            Guides
-          </nuxt-link>
         </div>
       </div>
     </div>

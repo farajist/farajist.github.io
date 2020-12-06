@@ -2,19 +2,17 @@
   <footer class="footer flex">
     <section class="container">
       <nav class="footer-links">
-        <nuxt-link to="/blog">
+        <nuxt-link to="/">
+          Home
+        </nuxt-link>
+        <nuxt-link to="/about">
+          About
+        </nuxt-link>
+        <nuxt-link
+          to="/blog"
+        >
           Blog
         </nuxt-link>
-        <nuxt-link to="/guides">
-          Guides
-        </nuxt-link>
-        <a
-          href="#"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Newsletter
-        </a>
       </nav>
       <nav class="flex justify-center">
         <a
@@ -24,7 +22,7 @@
           rel="noopener noreferrer"
           class="img"
         >
-          <img src="/icons/nuxt.png" class="footer-img" alt="NuxtJS">
+          <img src="~/assets/images/nuxt.png" class="footer-img" alt="NuxtJS">
         </a>
         <a
           href="https://github.com/farajist"
@@ -33,7 +31,7 @@
           rel="noopener noreferrer"
           class="img"
         >
-          <img src="/icons/github.png" class="footer-img" alt="GitHub">
+          <img src="~/assets/images/github.png" class="footer-img" alt="GitHub">
         </a>
         <a
           href="https://www.netlify.com/"
@@ -42,7 +40,7 @@
           rel="noopener noreferrer"
           class="img"
         >
-          <img src="/icons/netlify.png" class="footer-img" alt="Netlify">
+          <img src="~/assets/images/netlify.png" class="footer-img" alt="Netlify">
         </a>
       </nav>
     </section>
