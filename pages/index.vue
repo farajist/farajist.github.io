@@ -5,17 +5,16 @@
         <div class="copy">
           <h1>
             Hey, I'm Hamza <br>
-            I'm a CS Student, interested in applied ML and OSS.
+            I'm a software engineer with keen interest in applied ML and OSS.
           </h1>
           <p class="subtitle" />
           <p>
-            This website is my portfolio - I like to keep it updated with things I learn
-            along the journey as well as things I'm interested in.
+            This website is my portfolio - I like to keep it updated with what I learn
+            along the journey of life as well as things I'm interested in.
           </p>
           <p>
             You can read my
-            <nuxt-link to="/blog">posts</nuxt-link>, view my
-            <nuxt-link to="/blog">guides and tutorials</nuxt-link>,
+            <nuxt-link to="/blog">posts</nuxt-link>
             or learn more about <nuxt-link to="/about">me</nuxt-link>.
           </p>
           <p class="flex">
@@ -39,7 +38,7 @@
         </div>
 
         <div class="image">
-          <img src="{tania}" alt="Hamza">
+          <img src="https://github.com/farajist.png" alt="Hamza">
         </div>
       </div>
     </section>
@@ -50,9 +49,7 @@
       </section>
       <section>
         <h2>Projects</h2>
-      </section>
-      <section>
-        <h2>Newsletter</h2>
+        <p>Coming Soon ... </p>
       </section>
     </div>
   </div>

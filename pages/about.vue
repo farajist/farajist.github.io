@@ -30,14 +30,15 @@
             <li />
             <li />
           </ul>
-          <!--TODO: links to each here-->
+          <!--TODO: fill github projects-->
           <p>
             Well life is not just about computers though, I enjoy listening to music, playing strategy games, reading
             mangas and watching anime occasionally,
           </p>
-          <h3>Timeline</h3>
           <h3>Miscellaneous</h3>
+          <!--TODO: fill misc-->
           <h3>Quotes</h3>
+          <!--TODO: fill quotes-->
         </div>
       </div>
     </section>

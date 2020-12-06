@@ -22,13 +22,20 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
-  name: 'Projects',
-  props: {
-    projects: Array
-  }
-})
+import { Component, Prop, Vue } from 'vue-property-decorator'
+export interface Project {
+  title: string;
+  description: string;
+  img: string;
+  alt: string;
+  body: any;
+  createdAt: string;
+  updatedAt: string;
+}
+@Component
+export default class Projects extends Vue {
+  @Prop({ type: Array, required: true }) readonly projects!: Project[]
+}
 </script>
 
 <style scoped>
