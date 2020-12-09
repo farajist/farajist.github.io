@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tags/meta", {data:[{}],fetch:[],mutations:void 0});

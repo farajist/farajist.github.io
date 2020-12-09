@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/blog", {data:[{articles:[{title:"Trying out various Markdown styles on a single page",tags:["markdown","code","testing"],slug:"md-showcase"},{title:"Leaving the localhost, Hello World!",tags:["meta","notes"],slug:"hello"}]}],fetch:[],mutations:void 0});
